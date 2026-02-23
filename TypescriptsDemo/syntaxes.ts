@@ -1,4 +1,4 @@
-let name:string ="John Doe";
+let personName:string ="John Doe";
 let ang:number = 40;
 let isEmployed:boolean =true;
 let hobbies:string[] =["Reading","gaming","hocking"];
@@ -18,12 +18,12 @@ let add = (x:number,y:number):number => x+y ;
 
 
 
-console.log(name);
+console.log(personName);
 console.log(ang);
 console.log(isEmployed);
 console.log(hobbies);
 console.log(address);
-console.log(greet(name));
+console.log(greet(personName));
 console.log(doingTask("TypeScript"));
 console.log(add(5, 10));    
 
