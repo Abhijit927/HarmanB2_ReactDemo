@@ -1,4 +1,4 @@
-function CreateDivEmlement(name:string):any{
+export function CreateDivEmlement(name:string):any{
     return `<div> ${name}</div>`;
 }
 

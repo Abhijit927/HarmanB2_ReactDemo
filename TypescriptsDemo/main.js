@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var classes_1 = require("./classes");
+var tsXml_1 = require("./tsXml");
+var syntaxes_1 = require("./syntaxes");
+var divElement = (0, tsXml_1.CreateDivEmlement)("Welcome to TypeScript Demo!");
+console.log(divElement);
+console.log((0, syntaxes_1.greet)("TypeScript Learner"));
+console.log((0, syntaxes_1.doingTask)("Learning TypeScript"));
+console.log((0, syntaxes_1.add)(1, 5));
+console.log(syntaxes_1.address);
+console.log(syntaxes_1.hobbies);
+console.log(syntaxes_1.complexObject);
+var pruthvi = new classes_1.employee(3, "Pruthvi", 70000, "Pruthvi@123", "pruthvi@123", "Department:Finance", "Locations:Banglore");
+pruthvi.swipe();
+console.log(pruthvi);

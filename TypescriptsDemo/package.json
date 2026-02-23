@@ -5,8 +5,8 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "classes.js",
+  "main": "main.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "execute": "tsc main.ts && node main.js"
   }
 }

@@ -24,8 +24,8 @@ export class employee {
 }
 
 //call class
-let empMeena = new employee(1,"Meena",50000,"Meena@123","meeena@123","Dpartment:IT","Location:chainai");
-let empRavi = new employee(2,"Ravi",60000,"Ravi@123","ravi@123","Dpartment:HR","Location:Delhi");
+export let empMeena = new employee(1,"Meena",50000,"Meena@123","meeena@123","Dpartment:IT","Location:chainai");
+export let empRavi = new employee(2,"Ravi",60000,"Ravi@123","ravi@123","Dpartment:HR","Location:Delhi");
 
 empMeena.swipe();
 empMeena.swipe();
