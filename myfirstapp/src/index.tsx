@@ -10,6 +10,9 @@ import { Clock } from './HeaderComponent/Clock';
 import './HeaderComponent/Clock.css';
 import  'bootstrap/dist/css/bootstrap.css';
 import { FooterComponentTemplate } from './FooterComponent/FooterComponent';
+import 'bootstrap/dist/css/bootstrap.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

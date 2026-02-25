@@ -1,8 +1,29 @@
 import { Cart2ProductComponent } from "../Cart2ProductComponent/Cart2ProductComponent";
-import { Component } from "react";
+import { Component, useState } from "react";
+
+// interface Iproduct {
+//   id: number;
+//   name: string;
+//   quantity: number;
+//   photoUrl:string;
+//   price:number;
+// };
+
+interface IProduct {
+  id: number;
+  name: string;
+  quantity: number;
+  photoUrl: string;
+  price: number;
+}
+
 
 export let Cart2Component  = () => {
- let products = [
+
+
+
+
+let products = [
     {
       id: 1,
       photoUrl:
@@ -61,15 +82,36 @@ export let Cart2Component  = () => {
     },
   ];
  
+
+const [product,setProduct] = useState<IProduct[]>(products)
+    const HandleIncrement = (id: number) => {
+  setProduct(prev =>
+    prev.map(p =>
+      p.id === id ? { ...p, quantity: p.quantity + 1 } : p
+    )
+  );
+};
+
+const HandleDecrement = (id: number) => {
+  setProduct(prev =>
+    prev.map(p =>
+      p.id === id && p.quantity > 0
+        ? { ...p, quantity: p.quantity - 1 }
+        : p
+    )
+  );
+};
+
+ 
   return(
     <div className="container-fluid">
         <h4 className="text-center mt-2 mb-2 border border-default p-1 bg-dark text-white">Shopping Cart.</h4>
-        <div className="row mb-3">
-            {products.map((products) => {
-           return  <Cart2ProductComponent key={products.id} product={products} >
-            <button className="btn btn-primary"> Buy Now </button>
-           </Cart2ProductComponent>
-            })}
+        <div className="row mb-1">
+            {product.map((prod) => (
+              <Cart2ProductComponent key={prod.id} product={prod} onIncrement={HandleIncrement} onDecrement={HandleDecrement}>
+                <button className="btn btn-primary"> Buy Now </button>
+              </Cart2ProductComponent>
+            ))}
         </div>
     </div>
   )
