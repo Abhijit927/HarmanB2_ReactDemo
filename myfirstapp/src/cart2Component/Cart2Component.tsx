@@ -78,7 +78,7 @@ export let Cart2Component = () => {
   ];
 
   const [product, setProduct] = useState<IProduct[]>(products);
-  
+
   const HandleIncrement = (id: number, maxValue: number) => {
     setProduct((prev) =>
       prev.map((p) =>
@@ -100,7 +100,9 @@ export let Cart2Component = () => {
   };
 
   const HandleDelete = (id?: number) => {
+    if(window.confirm(" Are you sure to delete ? ")){
     setProduct((prev) => prev.filter((p) => p.id !== id));
+    }
   };
 
   return (
