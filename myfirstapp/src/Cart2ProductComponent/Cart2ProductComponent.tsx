@@ -2,6 +2,7 @@ import { useState, ReactNode } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+// import "font-awesome"
 
 interface Iproduct {
   id: number;
@@ -14,21 +15,26 @@ interface Iproduct {
 
 interface Props {
   product: Iproduct;
-  onIncrement: (id: number) => void;
-  onDecrement: (id: number) => void;
+  onIncrement: (id: number,maxValue:number) => void;
+  onDecrement: (id: number,minValue:number) => void;
+  deleteProduct:(id:number) => void;
   children?: React.ReactNode;
 }
 
-export const Cart2ProductComponent = ({product,onIncrement,onDecrement,children}:Props) => {
+export const Cart2ProductComponent = ({product,onIncrement,onDecrement,deleteProduct,children}:Props) => {
   const [product1, setProduct] = useState(product);
   console.log("product1", product1);
 
   return (
     <div className="card-group col-lg-3 text-center col-xs-12 col-sm-12 mb-3 mt-3 h-20 ">
       <div className="card h-20 w-20 m-1 bg-info border border-secondary rounded">
-        <h4 className="ml-3 pl-3 text-end">
-          <span className="badge text-bg-secondary pl-3 ml-3 ">
+        <h4 className="row">
+         <span className="col-1">#</span><span className="badge text-bg-secondary  col-1 m-1 p-1">
             {product.id}
+          </span>
+          {/* <span className="Clearfix"></span> */}
+          <span className="pull-right col-9 text-end float-right">
+            <i className="fa fa-times border border-red border lg-radius pointer-cursor text-color-red" onClick={() => {deleteProduct(product.id)}}></i>
           </span>
         </h4>
         <img
@@ -48,8 +54,8 @@ export const Cart2ProductComponent = ({product,onIncrement,onDecrement,children}
             <span className="badge rounded-pill text-bg-info">{product.quantity}</span>
           </div>
            <div className="btn-group col-4 m-auto">
-                <button className="btn btn-outline-success"  onClick={() => { onIncrement(product.id)}} >+</button>
-                <button className="btn btn-outline-danger" onClick={() => { onDecrement(product.id)}} >-</button>
+                <button className="btn btn-outline-success"  onClick={() => { onIncrement(product.id,10)}} >+</button>
+                <button className="btn btn-outline-danger" onClick={() => { onDecrement(product.id,0)}} >-</button>
             </div>
           <div className="float-right col-4 align-self-end m-auto">
             {children}

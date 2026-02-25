@@ -12,6 +12,27 @@ code {
     monospace;
 } */
 
+.pointer-cursor{
+  cursor: pointer;
+  border-radius: 40%;
+  border-color: red;
+  color: red;
+  background-color: default;
+  border-style: solid;
+}
+
+.pointer-cursor:hover {
+  background-color: red;  /* fill on hover */
+  color: white;           /* icon turns white */
+  transform: scale(1.2);  /* slightly bigger */
+}
+
+.pointer-cursor.pointer-cursor:click{
+  background-color: whitesmoke;  /* fill on hover */
+  color: black;           /* icon turns white */
+  transform: scale(1.5);  /* slightly bigger */
+}
+
 * {
   box-sizing: border-box;
 }

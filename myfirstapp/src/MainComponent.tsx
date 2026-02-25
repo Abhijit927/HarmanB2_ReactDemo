@@ -8,6 +8,8 @@ import { Greetings } from "./ForPropTypes/greetingsComponent";
 import { AuthRoute } from "./AuthRouteComponent/AuthRouterComponent";
 import { CartComponent } from "./CartComponent/CartComponent";
 import { Cart2Component } from "./cart2Component/Cart2Component";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 export let MainComponentTemplate = () =>{
 

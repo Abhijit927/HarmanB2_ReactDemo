@@ -13,6 +13,9 @@ import { FooterComponentTemplate } from './FooterComponent/FooterComponent';
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import 'font-awesome/fonts/fontawesome-webfont.svg'
+
+// import 'font-awesome/'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -31,6 +34,10 @@ const footer = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
     <MainComponentTemplate />
     {/* <BrowserRouter>
       <Reactions title="My Reactions Component" showLikes={true} showDislikes={true} showLove={true} />

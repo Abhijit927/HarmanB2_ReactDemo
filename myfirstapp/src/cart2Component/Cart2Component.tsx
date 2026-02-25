@@ -17,13 +17,8 @@ interface IProduct {
   price: number;
 }
 
-
-export let Cart2Component  = () => {
-
-
-
-
-let products = [
+export let Cart2Component = () => {
+  let products = [
     {
       id: 1,
       photoUrl:
@@ -81,38 +76,51 @@ let products = [
       quantity: 2,
     },
   ];
- 
 
-const [product,setProduct] = useState<IProduct[]>(products)
-    const HandleIncrement = (id: number) => {
-  setProduct(prev =>
-    prev.map(p =>
-      p.id === id ? { ...p, quantity: p.quantity + 1 } : p
-    )
-  );
-};
+  const [product, setProduct] = useState<IProduct[]>(products);
+  
+  const HandleIncrement = (id: number, maxValue: number) => {
+    setProduct((prev) =>
+      prev.map((p) =>
+        p.id === id && p.quantity < maxValue
+          ? { ...p, quantity: p.quantity + 1 }
+          : p,
+      ),
+    );
+  };
 
-const HandleDecrement = (id: number) => {
-  setProduct(prev =>
-    prev.map(p =>
-      p.id === id && p.quantity > 0
-        ? { ...p, quantity: p.quantity - 1 }
-        : p
-    )
-  );
-};
+  const HandleDecrement = (id: number, minValue: number) => {
+    setProduct((prev) =>
+      prev.map((p) =>
+        p.id === id && p.quantity > 1 && p.quantity > minValue
+          ? { ...p, quantity: p.quantity - 1 }
+          : p,
+      ),
+    );
+  };
 
- 
-  return(
+  const HandleDelete = (id?: number) => {
+    setProduct((prev) => prev.filter((p) => p.id !== id));
+  };
+
+  return (
     <div className="container-fluid">
-        <h4 className="text-center mt-2 mb-2 border border-default p-1 bg-dark text-white">Shopping Cart.</h4>
-        <div className="row mb-1">
-            {product.map((prod) => (
-              <Cart2ProductComponent key={prod.id} product={prod} onIncrement={HandleIncrement} onDecrement={HandleDecrement}>
-                <button className="btn btn-primary"> Buy Now </button>
-              </Cart2ProductComponent>
-            ))}
-        </div>
+      <h4 className="text-center mt-2 mb-2 border border-default p-1 bg-dark text-white">
+        Shopping Cart.
+      </h4>
+      <div className="row mb-1">
+        {product.map((prod) => (
+          <Cart2ProductComponent
+            key={prod.id}
+            product={prod}
+            onIncrement={HandleIncrement}
+            onDecrement={HandleDecrement}
+            deleteProduct={HandleDelete}
+          >
+            <button className="btn btn-primary"> Buy Now </button>
+          </Cart2ProductComponent>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
